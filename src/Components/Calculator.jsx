@@ -3,9 +3,12 @@ import React from "react";
 function Calculator() {
   return (
     <>
-      <div className="container">
+      <div className="w-[420px] bg-[rgb(168,168,168)] m-auto text-center p-[11px] mt-[55px]">
         <div>
-          <input></input>
+          <input
+            placeholder="0"
+            className="w-[80%] bg-white p-[11px] border-none text-[20px] mt-[11px] rounded-[3px]"
+          ></input>
         </div>
         <button value="(">(</button>
         <button value=")">)</button>

@@ -1,13 +1,12 @@
-import Calculator from "./Components/Calculator"
-import './app.css'
+import Calculator from "./Components/Calculator";
+import "./app.css";
 
 function App() {
-
   return (
-    <div className="app">
-      <Calculator/>
+    <div>
+      <Calculator />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
