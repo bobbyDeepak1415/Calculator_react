@@ -10,7 +10,7 @@ function Calculator() {
   return (
     <>
       <div className="w-[500px] h-[550px] bg-[rgb(168,168,168)] m-auto text-center p-[11px] mt-[55px]">
-        <p className="h-[20px] text-2xl font-bold mb-2">Calculator</p>
+        <p className="h-[20px] text-2xl font-bold mb-2">Calculatorrr</p>
         <div>
           <input
             value={data}
