@@ -10,7 +10,7 @@ function Calculator() {
   };
 
   const calculation = () => {
-    setData(eval(data));
+    setData(eval(data).toString());
   };
 
   const clearOne = () => {
