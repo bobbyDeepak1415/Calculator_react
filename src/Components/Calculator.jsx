@@ -2,11 +2,9 @@ import React, { useState } from "react";
 
 function Calculator() {
   const [data, setData] = useState("");
-  const [entries, setEntries] = useState([]);
 
   const getValue = (e) => {
     setData(data.concat(e.target.value));
-    setEntries([...entries, data]);
   };
 
   const calculation = () => {
@@ -14,12 +12,16 @@ function Calculator() {
   };
 
   const clearOne = () => {
-    setData(entries.pop());
+    setData(data.slice(0, -1));
   };
+
+  const clearAll=()=>{
+    setData("")
+  }
 
   return (
     <>
-      <div className="w-[500px] h-[550px] bg-[rgb(168,168,168)] m-auto text-center p-[11px] mt-[55px]">
+      <div className="w-[500px] h-[550px] bg-blue-300 m-auto text-center p-[11px] mt-[55px]">
         <p className="h-[20px] text-2xl font-bold mb-2">Calculator</p>
         <div>
           <input
@@ -38,7 +40,7 @@ function Calculator() {
           <button onClick={getValue} value="%">
             %
           </button>
-          <button onClick={clearOne} value="AC">
+          <button onClick={clearAll} >
             AC
           </button>
 
@@ -84,9 +86,7 @@ function Calculator() {
           <button onClick={getValue} value="+">
             0
           </button>
-          <button onClick={getValue} value="Back">
-            Back
-          </button>
+          <button onClick={clearOne}>Back</button>
           <button onClick={calculation}>=</button>
           <button onClick={getValue} value="/">
             /
