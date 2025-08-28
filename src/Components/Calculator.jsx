@@ -11,13 +11,13 @@ function Calculator() {
     setData(eval(data).toString());
   };
 
-  const clearOne = () => {
+  const clearLast = () => {
     setData(data.slice(0, -1));
   };
 
-  const clearAll=()=>{
-    setData("")
-  }
+  const clearAll = () => {
+    setData("");
+  };
 
   return (
     <>
@@ -40,9 +40,7 @@ function Calculator() {
           <button onClick={getValue} value="%">
             %
           </button>
-          <button onClick={clearAll} >
-            AC
-          </button>
+          <button onClick={clearAll}>AC</button>
 
           <button onClick={getValue} value="7">
             7
@@ -86,7 +84,7 @@ function Calculator() {
           <button onClick={getValue} value="+">
             0
           </button>
-          <button onClick={clearOne}>Back</button>
+          <button onClick={clearLast}>Back</button>
           <button onClick={calculation}>=</button>
           <button onClick={getValue} value="/">
             /
