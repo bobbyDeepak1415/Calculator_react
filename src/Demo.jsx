@@ -1,34 +1,34 @@
-import React, {  useReducer } from "react";
+import React, { useReducer } from "react";
 import Child from "./Child";
 // import handleClick from "./handleClick";
 
+const initialState = {
+  count: 0,
+};
 
-
-const initialState={
-    count:0
+function reducerFunc(state, action) {
+  switch (action.type) {
+    case "decrement":
+      return { count: state.count - 1 };
+    case "increment":
+      return { count: state.count + 1 };
+  }
 }
 
-function reducerFunc(state,action){
+const Demo = () => {
+  console.log("demo rendering...");
 
-}
+  const [state, dispatch] = useReducer(reducerFunc, initialState);
 
-const Demo=()=>{
-
-
-
-    const [count,dispatch]=useReducer(reducerFunc,initialState)
-
-    return (
-
-        <>
-        <h2>Demo count at:{}</h2>
-        <button>-</button>
-        <button>+</button>
-        <button>reset</button>
-        <Child/>
-        </>
-    )
-
-}
+  return (
+    <>
+      <h2>Demo count at:{state.count}</h2>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button>reset</button>
+      <Child />
+    </>
+  );
+};
 
 export default Demo;
