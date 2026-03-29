@@ -2,34 +2,39 @@ import React, { useCallback, useReducer, useState } from "react";
 import Child from "./Child";
 // import handleClick from "./handleClick";
 
+let initialState = {
+  count: 0,
+};
 
-let initialState={
-    count:0
-}
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
 
+    case "decrement":
+      return { count: state.count - 1 };
 
-const reducer=(state,action)=>{
-
-    
-
-}
+    case "reset":
+      return { count: state.count };
+    default:
+      return state;
+  }
+};
 
 const Demo = () => {
   console.log("rendering parent...");
 
-  const [count,dispatch] = useReducer(reducer,initialState);
-//   const memoizedValue = useCallback(() => {
-//     handleClick(setCount);
-//   }, [setCount]);
-
-
+  const [state, dispatch] = useReducer(reducer, initialState);
+  //   const memoizedValue = useCallback(() => {
+  //     handleClick(setCount);
+  //   }, [setCount]);
 
   return (
     <div>
-      <h1>Parent count at:{count}</h1>
-      <button>+</button>
-      <button onClick={()=>dispatch("increment")}>-</button>
-      <button>reset</button>
+      <h1>Parent count at:{state.count}</h1>
+      <button onClick={() => dispatch("decrement")}>-</button>
+      <button onClick={() => dispatch("increment")}>+</button>
+      <button onClick={() => dispatch("reset")}>reset</button>
       <Child />
     </div>
   );
