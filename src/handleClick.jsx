@@ -1,5 +1,5 @@
-const handleClick = (count) => {
-  return (count = count + 1);
+const handleClick = (setCount) => {
+  setCount((prev) => prev + 1);
 };
 
 export default handleClick;
