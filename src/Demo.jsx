@@ -1,24 +1,35 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import Child from "./Child";
-import handleClick from "./handleClick";
+// import handleClick from "./handleClick";
+
+
+let initialState={
+    count:0
+}
+
+
+const reducer=(state,action)=>{
+
+    
+
+}
 
 const Demo = () => {
   console.log("rendering parent...");
 
-  let num = 9;
+  const [count,dispatch] = useReducer(reducer,initialState);
+//   const memoizedValue = useCallback(() => {
+//     handleClick(setCount);
+//   }, [setCount]);
 
-  const memoizedValue = useMemo(() => {
-    console.log("expensive func called");
-    return num * 1000;
-  }, [num]);
 
-  const [count, setCount] = useState(0);
+
   return (
     <div>
       <h1>Parent count at:{count}</h1>
-      <h2>expensive operation result:{memoizedValue}</h2>
-      <button onClick={() => handleClick(setCount)}>click</button>
-      {/* <button>+</button> */}
+      <button>+</button>
+      <button onClick={()=>dispatch("increment")}>-</button>
+      <button>reset</button>
       <Child />
     </div>
   );
