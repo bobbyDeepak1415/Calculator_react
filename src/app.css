@@ -14,6 +14,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  transition-duration: 1s;
+  transition: ease-in-out;
+}
+
 .App {
   text-align: center;
 }
